@@ -57,7 +57,7 @@ There is no complex installation process. Simply clone the repository and open t
     
 
 3.  **Open `index.html` in your browser:**
-    You can do this by double-clicking the `index.html` file in your file explorer, or by running a simple local server (recommended for more complex projects, but not strictly necessary here).
+    You can do this by double-clicking the `index.html` file in your file explorer, or by running a simple local server.
 
     *   **Option 1 (Direct Open):**
         bash
@@ -67,12 +67,14 @@ There is no complex installation process. Simply clone the repository and open t
         # On Windows
         start index.html
         
-    *   **Option 2 (Using a simple HTTP server - recommended for development):**
+        
+    *   **Option 2 (Using a simple HTTP server):**
         If you have Node.js installed, you can use `http-server`:
         bash
         npx http-server .
         
-        Then open `http://localhost:8080` (or the port displayed) in your browser.
+        
+        Then open `http://localhost:8080` in your browser.
 
 ### Configuration
 
@@ -86,14 +88,12 @@ You can modify `index.html` to add your content and structure, and `ChaiTailwind
 **Example: Modifying `index.html`**
 
 html
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chai-Tailwind Demo</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
@@ -104,8 +104,6 @@ html
             Click Me
         </button>
     </div>
-
-    <!-- Your custom JavaScript -->
     <script src="ChaiTailwind.js"></script>
 </body>
 </html>
@@ -114,14 +112,12 @@ html
 **Example: Modifying `ChaiTailwind.js`**
 
 javascript
-// ChaiTailwind.js
 document.addEventListener('DOMContentLoaded', () => {
     const appDiv = document.getElementById('app');
     const actionButton = document.getElementById('actionButton');
 
     if (appDiv) {
         console.log('Chai-Tailwind app loaded successfully!');
-        // Example: Add a class after a delay
         setTimeout(() => {
             appDiv.classList.add('border-4', 'border-green-500');
         }, 2000);
@@ -129,10 +125,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (actionButton) {
         actionButton.addEventListener('click', () => {
-            alert('Button clicked! You can add more logic here.');
+            alert('Button clicked!');
             actionButton.textContent = 'Clicked!';
-            actionButton.classList.remove('bg-blue-500');
-            actionButton.classList.add('bg-green-500');
+            actionButton.classList.replace('bg-blue-500', 'bg-green-500');
         });
     }
 });
